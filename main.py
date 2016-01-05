@@ -7,8 +7,6 @@ from sklearn import svm
 from sklearn import cross_validation
 
 
-plt.style.use('ggplot')
-
 data = pd.read_csv('crx_data_train_x.csv', header=None, na_values='?')
 y = pd.read_csv('crx_data_train_y.csv', header=None, na_values='?')
 
@@ -43,6 +41,9 @@ for c in binary_columns:
 
 data_nonbinary = pd.get_dummies(data[nonbinary_columns])
 # print(data[numerical_columns].describe())
+
+
+
 data_numerical = data[numerical_columns]
 data_numerical_normal_1 = (data_numerical - data_numerical.mean()) / data_numerical.std()
 # print(data_numerical_normal_1.describe())
