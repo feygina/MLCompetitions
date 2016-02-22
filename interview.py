@@ -24,11 +24,12 @@ data.drop(data.columns[[-1]], axis=1, inplace=True)
 
 data.dropna(axis=1, how='any', inplace=True)
 
-# data.drop('visit_first_action_time', axis=1, inplace=True)
-# data.drop('visit_last_action_time', axis=1, inplace=True)
-# data.drop('server_time', axis=1, inplace=True)
-# data.drop('visitor_localtime', axis=1, inplace=True)
-# data.drop('idvisitor.1', axis=1, inplace=True)
+data.drop('visit_first_action_time', axis=1, inplace=True)
+data.drop('visit_last_action_time', axis=1, inplace=True)
+data.drop('server_time', axis=1, inplace=True)
+data.drop('visitor_localtime', axis=1, inplace=True)
+data.drop('idvisitor.1', axis=1, inplace=True)
+data.drop('idvisit.1', axis=1, inplace=True)
 # # cuz it all = False
 # data.drop('config_gears', axis=1, inplace=True)
 # data.drop('idaction_name_ref', axis=1, inplace=True)
@@ -51,10 +52,11 @@ list_of_count_columns_names = ['visitor_count_visits', 'visitor_days_since_last'
 
 count_data = data[list_of_count_columns_names]
 
-# data.drop(list_of_count_columns_names, axis=1, inplace=True)
+data.drop(list_of_count_columns_names, axis=1, inplace=True)
 
-# print(data['channel'].value_counts())
+binary_data = pd.get_dummies(data)
 
+print(binary_data.columns)
 
 # train_df = data.loc[data['is_lead'] == 'lead']
 # predict_df = data.loc[data['is_lead'] != 'lead']
